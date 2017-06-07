@@ -1,0 +1,7 @@
+---
+# tasks file for conner.mysql
+- name: Install mysql and dev pkg
+  apt:
+    name: "{{ item }}"
+  with_items:
+     - mysql-server
