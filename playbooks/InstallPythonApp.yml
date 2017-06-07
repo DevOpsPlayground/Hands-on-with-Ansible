@@ -1,0 +1,6 @@
+---
+- hosts: contorl
+  become: true
+  roles:
+    - conner.pythonenv
+    - conner.apache

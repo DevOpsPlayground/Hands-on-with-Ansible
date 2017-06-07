@@ -1,0 +1,12 @@
+---
+# tasks file for conner.pythonenv
+- name: Install WebApp Libs and Git
+  apt:
+    name: {{ item }}
+    state: latest
+    with_items:
+      - python
+      - python-devel
+      - python-virtualenv
+      - git
+      - gcc
