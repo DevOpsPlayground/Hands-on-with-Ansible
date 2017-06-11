@@ -2,7 +2,6 @@
 - hosts: control
   become: true
   roles:
-    - conner.pythonenv
     - conner.apache
 
 - hosts: database
