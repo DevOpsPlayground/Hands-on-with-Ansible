@@ -20,22 +20,28 @@
     name: wsgi
   notify: restart apache2
 
-- name: copy demo app source
+- name: clone demo app source
   git:
-    dest: /var/www/demo
+    dest: /tmp/demo
     repo: https://Pudd1ng@gitlab.com/Pudd1ng/DemoFlask.git
+  notify: restart apache2
+
+- name: copy demo app files
+  copy:
+    src: /tmp/demo/app/
+    dest: /var/www/demo
+    mode: 0755
   notify: restart apache2
 
 - name: copy apache virtual host config
   copy:
-    src: /var/www/demo/demo.conf
+    src: /tmp/demo/demo.conf
     dest: /etc/apache2/sites-available
-    mode: 0755
   notify: restart apache2
 
 - name: setup python virtualenv
   pip:
-    requirements: /var/www/demo/app/requirements.txt
+    requirements: /var/www/demo/requirements.txt
     virtualenv: /var/www/demo/.venv
   notify: restart apache2
 
