@@ -1,2 +1,10 @@
+
 ---
 # defaults file for conner.apache
+pythonreq:
+    - apache2
+    - libapache2-mod-wsgi
+    - python-pip
+    - python-virtualenv
+    - python-mysqldb
+    - git
