@@ -1,11 +1,12 @@
-[Set Up](doc/SetUp.md) | [lab-001](doc/lab-001.md) | [lab-002](doc/lab-002.md) | [lab-003](doc/lab-003.md) | [    lab-004](doc/lab-004.md)
+[Set Up](doc/SetUp.md) | [Folder Structure](doc/lab-001.md) | [Mysql Role](doc/lab-002.md) | [Apache Role](doc/lab-003.md) | [Ansible Vault](doc/lab-004.md)
 
+SetUp ~ Installing and Setting up hosts
 
 Pre-Requisites:
 Vagrant
 Virtualbox
 git
-
+putty or a similar ssh client if you are using windows
 Clone the following repo:
 
 git clone https://gitlab.com/Pudd1ng/AnsibleMeetUp
