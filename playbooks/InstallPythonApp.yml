@@ -8,3 +8,30 @@
   become: true
   roles:
     - conner.mysql
+
+- hosts: control
+  become: true
+  tasks:
+  - name: print db ip
+    debug:
+      msg: "{{ hostvars[groups['database'][0]]['ansible_eth1']['ipv4']['address'] }}"
+
+  - name: fix connection string
+    lineinfile:
+      dest: /var/www/demo/demo.wsgi
+      regexp: ^os.environ
+      line: "os.environ['DATABASE_URI'] = 'mysql://demo:demo@{{ hostvars[groups['database'][0]]['ansible_eth1']['ipv4']['address'] }}/demo'"
+    notify:
+    - touch wsgi
+    - restart apache  
+
+  handlers:
+    - name: restart apache
+      service:
+        name: apache2
+        state: restarted
+    
+    - name: touch wsgi
+      file:
+        path: /var/www/demo/demo.wsgi
+        state: touch
