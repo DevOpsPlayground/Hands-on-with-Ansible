@@ -1,4 +1,4 @@
-[1. Set Up](SetUp.md) | [2. Folder Structure](lab-001.md) | [3. Apache Role](lab-002.md) | [4. Mysql Role](lab-002.md) | [5. Ansible Vault](lab-004.md)
+[1. Set Up](SetUp.md) | [2. Folder Structure](lab-001.md) | [3. Apache Role](lab-002.md) | [4. Mysql Role](lab-002.md) | [5. Using Facts](lab-004.md) | [6. Using Vault](lab-005.md)
 
 # SetUp ~ Installing and Setting up hosts
 
