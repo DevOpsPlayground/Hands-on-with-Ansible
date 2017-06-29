@@ -24,7 +24,7 @@ Vagrant should have already installed and copied all the files we require for An
 
 ### Configuring Ansible:
 
-Open another terminal session and cd into the new repository. From here ssh into our desired nodes `vagrant ssh database`. A Enter the command ifconfig and take note of the ip under **eth1** 
+Open another terminal session and cd into the new repository. From here ssh into our desired nodes `vagrant ssh database`. Enter the command ifconfig and take note of the ip under **eth1** 
 
 We will not be needing the database terminal anymore feel free to close it.
 
