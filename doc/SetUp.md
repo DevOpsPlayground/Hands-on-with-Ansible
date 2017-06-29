@@ -1,4 +1,4 @@
-[Set Up](doc/SetUp.md) | [Folder Structure](doc/lab-001.md) | [Mysql Role](doc/lab-002.md) | [Apache Role](doc/lab-003.md) | [Ansible Vault](doc/lab-004.md)
+[1. Set Up](./doc/SetUp.md) | [2. Folder Structure](./doc/lab-001.md) | [3. Apache Role](./doc/lab-003.md) | [4. Mysql Role](./doc/lab-002.md) | [5. Ansible Vault](./doc/lab-004.md)
 
 # SetUp ~ Installing and Setting up hosts
 
@@ -10,7 +10,7 @@
 
 ### Clone the following repo:
 
-`git clone https://gitlab.com/Pudd1ng/AnsibleMeetUp`
+`https://github.com/ForestTechnologiesLtd/devopsplayground12-Ansible.git`
 
 ### Bringing up the environment:
 
@@ -19,20 +19,17 @@ Cd into the new repository and run the command `vagrant up`
 ### Installing Ansible:
 
 Once the environment is up and running we should be able to ssh into our new,
-machines run the command `vagrant ssh control` to enter our ansible control
-machine
+machines run the command `vagrant ssh control` to enter our ansible control machine. Also run `sudo su` for the purpose of this meetup we will be running and configuring our playbooks as **root**.
 
-Vagrant should have already installed and copied all the files we require for
-Ansible to run. However we still need to set up our nodes!
+Vagrant should have already installed and copied all the files we require for Ansible to run. However we still need to set up our nodes!
 
 ### Configuring Ansible:
 
-Open another terminal session and cd into the new repository. From here ssh
-into our desired nodes `vagrant ssh database`. A Enter the command ifconfig and
-take note of the ip under eth1
+Open another terminal session and cd into the new repository. From here ssh into our desired nodes `vagrant ssh database`. A Enter the command ifconfig and take note of the ip under **eth1** 
 
-Go back to our ssh session in our control machine and open the following hosts
-file `sudo vim /ansible/hosts` 
+We will not be needing the database terminal anymore feel free to close it.
+
+Go back to our ssh session in our control machine and open the following hosts file `vim /ansible/hosts` 
 
 Inside this file write the following:
 ```yaml
@@ -40,17 +37,17 @@ Inside this file write the following:
 localhost ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 
 [database]
-'databaseip' ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+<DATABASEIP> ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
 ```
 __Note that databaseip will be the ip of your database machine__
 
 We also need to set up an ssh key into our node from our control machine. From
 the control machine type the following command `ssh vagrant@localhost`
-the password should be vagrant.
+the password should be **vagrant**.
 
 As we want to communicate to our Database node do the same for that as well 
 `ssh vagrant@database`
-The password should also be vagrant.
+The password should also be **vagrant**.
 
 ### Testing our connections:
 
@@ -63,7 +60,7 @@ connections. Run the command `ansible -m ping all` to see if our control machine
 gets a response from each box
 
 ### Short Instructions
-1. `git clone https://gitlab.com/Pudd1ng/AnsibleMeetUp`
+1. `git clone https://github.com/ForestTechnologiesLtd/devopsplayground12-Ansible.git`
 2. `cd AnsibleMeetUp`
 3. `vagrant ssh control`
 4. __Open a new session__

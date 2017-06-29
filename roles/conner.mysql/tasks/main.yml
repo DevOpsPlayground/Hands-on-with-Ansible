@@ -33,8 +33,8 @@
 
 - name: create demo user
   mysql_user:
-    name: demo
-    password: demo
+    name: {{ mysqluser }}
+    password: {{ mysqlpass }}
     priv: demo.*:ALL
     host: '%'
     state: present
