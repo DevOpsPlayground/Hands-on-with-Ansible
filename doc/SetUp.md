@@ -29,7 +29,7 @@ Open another terminal session and cd into the new repository. From here ssh into
 We will not be needing the database terminal anymore feel free to close it.
 
 Go back to our ssh session in our control machine and open the following hosts file `vim /ansible/hosts` 
-**MACHINE: CONTROL, DIRECTORY: /ansible/hosts
+**MACHINE: CONTROL, DIRECTORY: /ansible/hosts**
 Inside this file write the following:
 
 ```yaml
@@ -50,7 +50,7 @@ As we want to communicate to our Database node do the same for that as well
 The password should also be **vagrant**.
 
 ### Testing our connections:
-**MACHINE: CONTROL, DIRECTORY: /ansible
+**MACHINE: CONTROL, DIRECTORY: /ansible**
 First lets see if our inventory has our hosts in. Inside /ansible run `ansible
 --list-hosts all` you can also run this against hosts groups for Instance
 running `ansible --list-hosts database` should show only our new node ip
